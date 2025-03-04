@@ -1,7 +1,13 @@
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Router";
+import { AuthContextProvider } from "./contexts/AuthContext";
+
 function App() {
   return (
     <>
-      <div className="bg-gray-900/30 h-screen">RhythmFlow</div>
+      <AuthContextProvider>
+        <RouterProvider router={router} />
+      </AuthContextProvider>
     </>
   );
 }
