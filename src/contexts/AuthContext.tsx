@@ -13,10 +13,14 @@ const AuthContext = createContext<{
     error?: string;
     // data?: { user: User; session: Session };
   }>;
+  signOut: () => Promise<{ success: boolean; error?: string }>;
 }>({
   session: null,
   user: null,
   login: async () => {
+    return Promise.resolve({ success: false });
+  },
+  signOut: () => {
     return Promise.resolve({ success: false });
   },
 });
@@ -44,6 +48,18 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     return { success: true };
   };
 
+  const signOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.log("There was an error logging out. Please try again.");
+      return {
+        success: false,
+        error: "There was an error logging out. Please try again.",
+      };
+    }
+    return { success: true };
+  };
+
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
@@ -57,7 +73,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ session, user, login }}>
+    <AuthContext.Provider value={{ session, user, login, signOut }}>
       {children}
     </AuthContext.Provider>
   );
