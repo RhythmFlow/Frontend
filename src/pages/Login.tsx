@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 
 import { Navigate, useNavigate } from "react-router";
 import { useAuth } from "src/providers/AuthProvider";
+import Button from "src/components/Button";
 
 function Login() {
   const navigate = useNavigate();
@@ -51,7 +52,7 @@ function Login() {
           <h1 className="text-3xl font-bold pb-6">Log in to RhythmFlow</h1>
           {/* Error message */}
           {error && (
-            <div className="bg-red-500 w-full p-3 m-2flex items-center rounded-sm">
+            <div className="bg-red-500 w-full p-3 m-4 flex items-center rounded-sm">
               <LuCircleAlert className="text-3xl pr-2" />
               <p>{error}</p>
             </div>
@@ -61,20 +62,20 @@ function Login() {
             className="flex flex-col w-5/6 justify-center items-center"
           >
             {/* Providers */}
-            <button
-              className="disabled:cursor-not-allowed flex items-center rounded-3xl bg-neutral-900 border-neutral-500 border-1 hover:cursor-pointer hover:border-neutral-300 text-white p-3 w-xs mt-6focus:outline-2focus:outline-white"
+            <Button
               onClick={handleGoogleLogin}
               disabled={loading}
+              className="bg-neutral-900 hover:bg-neutral-800 border border-neutral-500 flex items-center justify-center"
             >
               <FcGoogle className="text-2xl ml-4" />
               <p className="font-bold w-full justify-center">
                 Continue with Google
               </p>
-            </button>
+            </Button>
             <hr className="w-full border-neutral-500 mt-10 mb-10" />
             {/* Email input */}
             <div className="flex flex-col mb-6">
-              <label htmlFor="email" className="mb-2text-sm font-semibold">
+              <label htmlFor="email" className="mb-2 text-sm font-semibold">
                 Email
               </label>
               <input
@@ -105,13 +106,10 @@ function Login() {
                 disabled={loading}
               />
             </div>
-            <button
-              className="disabled:cursor-not-allowed m-2rounded-3xl bg-violet-500 hover:bg-violet-400 text-white p-3 w-xs hover:cursor-pointer"
-              disabled={loading}
-              type="submit"
-            >
+            {/* Submit button */}
+            <Button disabled={loading} type="submit">
               Log in
-            </button>
+            </Button>
           </form>
         </div>
       </div>
