@@ -43,60 +43,15 @@ function Login() {
   };
 
   return (
-    <div
-      className="
-    h-screen 
-    bg-gradient-to-t 
-    from-black 
-    from-20% 
-    to-violet-700
-    "
-    >
-      <div
-        className="
-      flex 
-      flex-row 
-      min-h-screen 
-      justify-center 
-      items-center
-      "
-      >
+    <div className="h-screen bg-gradient-to-t from-black from-20% to-violet-700">
+      <div className="flex flex-row min-h-screen justify-center items-center">
         {user && <Navigate to="/" />}
-        <div
-          className="
-        min-w-[300px] 
-        p-10 
-        bg-neutral-900 
-        w-xl 
-        rounded-xl 
-        flex 
-        flex-col 
-        items-center
-        "
-        >
+        <div className="min-w-[300px] p-10 bg-neutral-900 w-xl rounded-xl flex flex-col items-center">
           {/* Header */}
-          <h1
-            className="
-          text-3xl 
-          font-bold 
-          pb-6
-          "
-          >
-            Log in to RhythmFlow
-          </h1>
+          <h1 className="text-3xl font-bold pb-6">Log in to RhythmFlow</h1>
           {/* Error message */}
           {error && (
-            <div
-              className="
-            bg-red-500 
-            w-full 
-            p-3 
-            m-2
-            flex 
-            items-center 
-            rounded-sm
-            "
-            >
+            <div className="bg-red-500 w-full p-3 m-2flex items-center rounded-sm">
               <LuCircleAlert className="text-3xl pr-2" />
               <p>{error}</p>
             </div>
@@ -107,23 +62,7 @@ function Login() {
           >
             {/* Providers */}
             <button
-              className="
-            disabled:cursor-not-allowed 
-            flex 
-            items-center 
-            rounded-3xl 
-            bg-neutral-900 
-            border-neutral-500 
-            border-1 
-            hover:cursor-pointer 
-            hover:border-neutral-300 
-            text-white 
-            p-3 
-            w-xs 
-            mt-6
-            focus:outline-2
-            focus:outline-white
-            "
+              className="disabled:cursor-not-allowed flex items-center rounded-3xl bg-neutral-900 border-neutral-500 border-1 hover:cursor-pointer hover:border-neutral-300 text-white p-3 w-xs mt-6focus:outline-2focus:outline-white"
               onClick={handleGoogleLogin}
               disabled={loading}
             >
@@ -135,29 +74,12 @@ function Login() {
             <hr className="w-full border-neutral-500 mt-10 mb-10" />
             {/* Email input */}
             <div className="flex flex-col mb-6">
-              <label
-                htmlFor="email"
-                className="
-              mb-2
-              text-sm 
-              font-semibold
-            "
-              >
+              <label htmlFor="email" className="mb-2text-sm font-semibold">
                 Email
               </label>
               <input
                 autoComplete="email"
-                className="
-                disabled:cursor-not-allowed 
-                bg-neutral-900 border-1 
-                border-neutral-500 
-                focus:outline-white 
-                focus:outline-2 
-                hover:border-neutral-300 
-                rounded-sm 
-                p-3 
-                w-xs
-              "
+                className="disabled:cursor-not-allowed bg-neutral-900 border-1 border-neutral-500 focus:outline-white focus:outline-2 hover:border-neutral-300 rounded-sm p-3 w-xs"
                 placeholder="Email"
                 type="email"
                 id="email"
@@ -174,17 +96,7 @@ function Login() {
               </label>
               <input
                 placeholder="Password"
-                className="
-            disabled:cursor-not-allowed 
-            bg-neutral-900 border-1 
-            border-neutral-500 
-            focus:outline-white 
-            focus:outline-2 
-            hover:border-neutral-300 
-            rounded-sm 
-            p-3 
-            w-xs
-            "
+                className="disabled:cursor-not-allowed bg-neutral-900 border-1 border-neutral-500 focus:outline-white focus:outline-2 hover:border-neutral-300 rounded-sm p-3 w-xs"
                 type="password"
                 id="password"
                 onChange={(e) => {
@@ -194,17 +106,7 @@ function Login() {
               />
             </div>
             <button
-              className="
-            disabled:cursor-not-allowed 
-            m-2
-            rounded-3xl 
-            bg-violet-500 
-            hover:bg-violet-400 
-            text-white 
-            p-3 
-            w-xs 
-            hover:cursor-pointer
-            "
+              className="disabled:cursor-not-allowed m-2rounded-3xl bg-violet-500 hover:bg-violet-400 text-white p-3 w-xs hover:cursor-pointer"
               disabled={loading}
               type="submit"
             >
